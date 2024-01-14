@@ -28,6 +28,7 @@ Route::get('/about', function () {
 Route::get('/blog', function () {
     return view('blog/index', [
         "headline" => "Megawati: 51 Years We Are Like This Not Because of the President, But the People",
-        "description" => "PDIP General Chair Megawati Soekarnoputri gives a speech at the PDIP 51st Anniversary celebration. Megawati said that PDIP could stand as it is today not because of the president or the elite, but because of the support of the people." 
+        "description" => "PDIP General Chair Megawati Soekarnoputri gives a speech at the PDIP 51st Anniversary celebration. Megawati said that PDIP could stand as it is today not because of the president or the elite, but because of the support of the people.",
+        "img" => 'assets/megawati.jpg' 
     ]);
 });
