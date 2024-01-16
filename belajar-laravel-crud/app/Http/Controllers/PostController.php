@@ -23,7 +23,6 @@ class PostController extends Controller
     *
     * @return View
     */
-
     public function index(): view
     {
         // get posts
@@ -38,7 +37,6 @@ class PostController extends Controller
     *
     * @return View
     */
-
     public function create(): View
     {
         return view('posts.create');
