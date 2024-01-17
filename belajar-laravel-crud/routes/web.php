@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// resource('url-name', alamat class post controller)
 Route::resource('/posts', \App\Http\Controllers\PostController::class);

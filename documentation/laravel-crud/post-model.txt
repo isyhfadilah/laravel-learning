@@ -15,7 +15,7 @@ import trait 'HasFactory' dari framework laravel. trait ini menyediakan metode u
 ---------------------------------------------------------------------------------
 
 use Illuminate\Database\Eloquent\Model
-
+        
 import kelas dasar 'Model' dari framework laravel. kelas model ini menyediakan sejumlah fitur dan fungsi untuk berinteraksi dgn database secara objek-relasional (ORM).
 
 ---------------------------------------------------------------------------------
