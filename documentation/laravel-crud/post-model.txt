@@ -1,0 +1,43 @@
+POST MODEL DOCUMENTATION
+
+---------------------------------------------------------------------------------
+
+namespace App\Models
+
+mendefinisikan namespace untuk kelas Post. namespace ini mencerminkan struktur direktori proyek laravel yg umum, dimana Post dianggap sbg bagian dari model di dalam direktori Models dalam namespace App.
+
+---------------------------------------------------------------------------------
+
+use Illuminate\Database\Eloquent\Factories\HasFactory
+
+import trait 'HasFactory' dari framework laravel. trait ini menyediakan metode untuk memudahkan pembuatan data dummy atau data tes melalui Factory.
+
+---------------------------------------------------------------------------------
+
+use Illuminate\Database\Eloquent\Model
+
+import kelas dasar 'Model' dari framework laravel. kelas model ini menyediakan sejumlah fitur dan fungsi untuk berinteraksi dgn database secara objek-relasional (ORM).
+
+---------------------------------------------------------------------------------
+
+class Post extends Model
+
+mendeklarasikan kelas 'Post' yg merupakan turunan dari class 'Model'. ini berarti kelas 'Post' akan memiliki banyak akses ke banyak metode dan sifat yg disediakan oleh kelas dasar 'Model'.
+
+---------------------------------------------------------------------------------
+
+use HasFactory
+
+menggunakan use HasFactory pada kelas Post. ini memungkinkan kita untuk menggunakan fasilitas Factory untuk membuat data dummy atau data tes untuk model Post. 
+
+---------------------------------------------------------------------------------
+
+protected $fillable = [
+    'image',
+    'title',
+    'content',
+];
+
+menentukan atribut yg dapat diisi (fillable) secara massal (mass assignment) pada model Post. dgn kata lain, atribut2 ini dapat diisi menggunakan method create atau update secara massal tanpa perlu menyebutkan satu per satu.
+
+---------------------------------------------------------------------------------
