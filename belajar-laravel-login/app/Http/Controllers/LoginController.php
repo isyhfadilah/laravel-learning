@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 // can handle authentication
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 // send message session error
 use Session;
