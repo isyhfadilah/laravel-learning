@@ -5,50 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aplikasi Absensi</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-
+<body class="bg-sky-950 text-white">
     <div class="container">
-        <div class="col-md-12">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="{{ route('home') }}" class="navbar-brand">Aplikasi Absensi</a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-user"></i>
-                                    {{ Auth::user()->email }}
-                                    <span class="caret">
-                                        <ul class="dropdown-menu">
-                                            <li><a>Level : {{ Auth::user()->role }}</a></li>
-                                            <li role="separator" class="divider"></li>
-
-                                            <li>
-                                                <a href="{{ route('actionlogout') }}">
-                                                    <i class="fa fa-power-off">Log Out</i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+        <nav class="px-10 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-16">
+                <a href="{{ route('home') }}" class="font-semibold text-2xl">App<span class="text-cyan-500 text-lg">SEN</span></a>
+                <ul class="flex font-medium text-base space-x-6 items-center text-white/90">
+                    <li class=""><a href="{{ route('data') }}">Data Master</a></li>
+                    <li class=""><a href="#">Laporan</a></li>
+                    <li class=""><a href="#">Ga tau</a></li>
+                </ul>
+            </div>
+            <div class="space-x-5 flex">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-user"></i>
+                    <a href="#">{{ Auth::User()->email }}</a>
                 </div>
-            </nav>
+                <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
+            </div>
+        </nav>
+        <div class="px-10 py-40 space-y-10 flex justify-center items-center flex-col">
             @yield('konten')
         </div>
     </div>

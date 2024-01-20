@@ -33,7 +33,7 @@ class RegisterController extends Controller
         ]);
 
         // redirect to index
-        return redirect()->route('login')->with(['success' => 'Berhasil daftar']);
+        return redirect()->route('login')->with(['success' => 'Silahkan login kembali.']);
     }
 }
 
