@@ -1,3 +1,4 @@
+{{-- @include('master') --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,19 @@
     <title>Aplikasi Absensi</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>  
-    @extends('master')
-    <h1>{{ Auth::User()->name}}</h1>
+<body class="flex bg-rose-100 items-center">  
+    <table class="table-fixed">
+        <tr>
+            <th>Nama</th>
+            <th>Posisi</th>
+        </tr>
+        @forelse ($content as $data)
+        <tr>
+            <td>{{ $data->name; }}</td>
+            <td>{{ $data->role; }}</td>
+        </tr>
+    </table>   
+        @empty
+        @endforelse
 </body>
 </html>
