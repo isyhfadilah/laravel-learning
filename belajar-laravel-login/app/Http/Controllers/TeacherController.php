@@ -67,5 +67,36 @@ class TeacherController extends Controller
         return view('teachers.show', compact('teachers'));
     }
 
+    /**
+    * edit
+    *
+    * @param mixed $id
+    * @return View
+    */
+    public function edit(string $id): view 
+    {
+        $teachers = Teacher::findOrFail($id);
+        return view('teachers.edit', compact('teachers'));
+    }
+
+
+    public function update(Request $request, $id): RedirectResponse
+    {
+        $this->validate($request, [
+            'nip' => 'required|max:6',
+            'pengajar' => 'required',
+            'mata_pelajaran' => 'required'
+        ]);
+
+        $teachers = Teacher::findOrFile($id);
+
+        $teachers->update([
+            'nip' => $request->nip,
+            'pengajar' => $request->pengajar,
+            'mata_pelajaran' => $request->mata_pelajaran
+        ]);
+
+        return redirect()->route('teachers.index');
+    }
 
 }
