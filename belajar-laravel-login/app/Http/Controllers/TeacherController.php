@@ -55,4 +55,17 @@ class TeacherController extends Controller
         return redirect()->route('teachers.index')->with(['success' => 'Data berhasil disimpan!']);
     }
 
+    /**
+    * show
+    *
+    * @param mixed $id
+    * @return View
+    */
+    public function show(string $id): view
+    {
+        $teachers = Teacher::findOrFail($id);
+        return view('teachers.show', compact('teachers'));
+    }
+
+
 }
