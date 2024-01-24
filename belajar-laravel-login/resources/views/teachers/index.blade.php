@@ -27,8 +27,40 @@
                 <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
             </div>
         </nav>
-        @yield('konten')
+        <a href="{{ route('teachers.create') }}">TAMBAH</a>
+        <table class="flex justify-center">
+            <tr>
+                <th>NIP</th>
+                <th>Nama Pengajar</th>
+                <th>Mata Pelajaran</th>
+                <th>Aksi</th>
+            </tr>
+            @forelse ($teachers as $teacher)
+            <tr>
+                <td>{{ $teacher->nip }}</td>
+                <td>{{ $teacher->pengajar }}</td>
+                <td>{{ $teacher->mata_pelajaran }}</td>
+                <td class="text-center">
+                    <form onsubmit="return confirm('Apakah anda yakin?')" action="" method="post">
+                        <a href="{{ route('teachers.show', $teacher->id) }}">SHOW</a>
+                        <a href="{{ route('teachers.edit', $teacher->id) }}">EDIT</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">HAPUS</button>
+                    </form>
+                </td>
+            </tr> 
+            @empty
+                    
+            @endforelse
+        </table>
     </div>
 </body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    @if(session()->has('success'))
+        toastr.success('{{ session('success') }}', 'BERHASIL');
+    @elseif(session()->has('error'))
+        toastrs.error('{{ session('error') }}', 'GAGAL');
+    @endif
+</script>
 </html>

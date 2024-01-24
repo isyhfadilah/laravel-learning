@@ -27,8 +27,26 @@
                 <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
             </div>
         </nav>
-        @yield('konten')
+        <div class="flex justify-center">
+            <form action="{{ route('teachers.store') }}" method="post" class="w-1/2">
+                @csrf
+                <div class="space-y-3 px-5">
+                    <div class="flex flex-col text-white space-y-1">
+                        <label class="text-sm text-white/75 font-medium">NIP</label>
+                        <input type="number" name="nip" required class="py-2 px-5 rounded-lg text-black/50 font-medium">
+                    </div>
+                    <div class="flex flex-col text-white space-y-1">
+                        <label class="text-sm text-white/75 font-medium">Nama Pengajar</label>
+                        <input type="text" name="pengajar" required class="py-2 px-5 rounded-lg text-black/50 font-medium">
+                    </div>
+                    <div class="flex flex-col text-white space-y-1">
+                        <label class="text-sm text-white/75 font-medium">Mata Pelajaran</label>
+                        <input type="text" name="mata_pelajaran" required class="py-2 px-5 rounded-lg text-black/50 font-medium">
+                    </div>
+                    <button type="submit" class="bg-cyan-500 py-2 w-full text-white rounded-full">Tambah</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
