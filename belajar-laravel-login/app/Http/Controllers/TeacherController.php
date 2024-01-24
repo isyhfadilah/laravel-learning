@@ -80,6 +80,13 @@ class TeacherController extends Controller
     }
 
 
+    /**
+    * update
+    *
+    * @param mixed $request
+    * @param mixed $id
+    * @return RedirectResponse
+    */
     public function update(Request $request, $id): RedirectResponse
     {
         $this->validate($request, [
@@ -88,7 +95,7 @@ class TeacherController extends Controller
             'mata_pelajaran' => 'required'
         ]);
 
-        $teachers = Teacher::findOrFile($id);
+        $teachers = Teacher::findOrFail($id);
 
         $teachers->update([
             'nip' => $request->nip,
@@ -96,7 +103,20 @@ class TeacherController extends Controller
             'mata_pelajaran' => $request->mata_pelajaran
         ]);
 
-        return redirect()->route('teachers.index');
+        return redirect()->route('teachers.index')->with(['success' => 'Data berhasil dirubah']);
     }
 
+    /**
+    * destroy
+    *
+    * @param mixed $id
+    * @return void
+    */
+    public function destroy($id): RedirectResponse
+    {
+        $teachers = Teacher::findOrFail($id);
+        $teachers->delete();
+
+        return redirect()->route('teachers.index')->with(['success' => 'Data berhasil dihapus']);
+    }
 }

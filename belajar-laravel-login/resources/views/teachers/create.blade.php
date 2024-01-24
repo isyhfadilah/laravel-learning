@@ -27,8 +27,8 @@
                 <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
             </div>
         </nav>
-        <div class="flex justify-center">
-            <form action="{{ route('teachers.store') }}" method="post" class="w-1/2">
+        <div class="flex justify-center mt-20">
+            <form action="{{ route('teachers.store') }}" method="post" class="w-1/3">
                 @csrf
                 <div class="space-y-3 px-5">
                     <div class="flex flex-col text-white space-y-1">

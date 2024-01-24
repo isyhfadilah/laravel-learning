@@ -27,33 +27,54 @@
                 <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
             </div>
         </nav>
-        <a href="{{ route('teachers.create') }}">TAMBAH</a>
-        <table class="flex justify-center">
-            <tr>
-                <th>NIP</th>
-                <th>Nama Pengajar</th>
-                <th>Mata Pelajaran</th>
-                <th>Aksi</th>
-            </tr>
-            @forelse ($teachers as $teacher)
-            <tr>
-                <td>{{ $teacher->nip }}</td>
-                <td>{{ $teacher->pengajar }}</td>
-                <td>{{ $teacher->mata_pelajaran }}</td>
-                <td class="text-center">
-                    <form onsubmit="return confirm('Apakah anda yakin?')" action="" method="post">
-                        <a href="{{ route('teachers.show', $teacher->id) }}">SHOW</a>
-                        <a href="{{ route('teachers.edit', $teacher->id) }}">EDIT</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">HAPUS</button>
-                    </form>
-                </td>
-            </tr> 
-            @empty
-                    
-            @endforelse
-        </table>
+
+        @if(session('error'))
+        <div class="flex justify-center mb-6">
+            <div class="text-sm w-1/3 bg-green-100 text-green-500 py-2 rounded-md px-5 mt-5">
+                <b>Opps!.</b> {{session('error')}}
+            </div>
+        </div>
+        @endif
+
+        @if(session('success'))
+        <div class="flex justify-center mb-3">
+            <div class="text-sm w-1/3 bg-green-100 text-green-500 py-2 rounded-md px-5 mt-5">
+                <b>Berhasil.</b> {{session('success')}}
+            </div>
+        </div>
+        @endif
+
+        <a class="mx-10 px-3 py-1 rounded-full bg-cyan-600 text-white" href="{{ route('teachers.create') }}">Tambah</a>
+        <div class="flex flex-col space-y-6">
+            <h1 class="text-2xl text-white text-center font-bold">Data Pengajar <span class="text-cyan-500">SMKN 2 Sumedang</span></h1>
+            <table class="flex justify-center">
+                <tr class="bg-cyan-600 px-10">
+                    <th class="py-6 px-10">NIP</th>
+                    <th class="py-6 px-6">Nama Pengajar</th>
+                    <th class="py-6">Mata Pelajaran</th>
+                    <th>Aksi</th>
+                </tr>
+                @forelse ($teachers as $teacher)
+                <tr>
+                    <td class="py-1">{{ $teacher->nip }}</td>
+                    <td>{{ $teacher->pengajar }}</td>
+                    <td>{{ $teacher->mata_pelajaran }}</td>
+                    <td class="text-center">
+                        <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('teachers.destroy', $teacher->id) }}" method="post">
+                            <a href="{{ route('teachers.show', $teacher->id) }}" class="bg-blue-400 text-sm px-2">SHOW</a>
+                            <a href="{{ route('teachers.edit', $teacher->id) }}" class="bg-green-500 text-sm px-2">EDIT</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 text-sm px-2">HAPUS</button>
+                        </form>
+                    </td>
+                </tr> 
+                @empty
+                        
+                @endforelse
+            </table>
+
+        </div>
     </div>
 </body>
 <script>

@@ -27,8 +27,8 @@
                 <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
             </div>
         </nav>
-        <div class="flex flex-col justify-center items-center text-lg">
-            <div>
+        <div class="flex flex-col mt-40 justify-center items-center text-lg">
+            <div class="bg-white/50 text-white px-10 py-6 rounded-lg">
                 <h1>NIP: {{ $teachers->nip }}</h1>
                 <h1>Pengajar: {{ $teachers->pengajar }}</h1>
                 <h1>Mata Pelajaran: {{ $teachers->mata_pelajaran }}</h1>

@@ -27,8 +27,8 @@
                 <a class="bg-cyan-600 py-1 px-3 rounded-full" href="{{ route('actionlogout') }}">Logout</a>
             </div>
         </nav>
-        <div class="flex justify-center">
-            <form action="{{ route('teachers.update', $teachers->id) }}" method="post" class="w-1/2">
+        <div class="flex justify-center mt-20">
+            <form action="{{ route('teachers.update', $teachers->id) }}" method="post" class="w-1/3" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
