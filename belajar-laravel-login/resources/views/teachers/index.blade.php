@@ -46,7 +46,7 @@
 
         <a class="mx-10 px-3 py-1 rounded-full bg-cyan-600 text-white" href="{{ route('teachers.create') }}">Tambah</a>
         <div class="flex flex-col space-y-6">
-            <h1 class="text-2xl text-white text-center font-bold">Data Pengajar <span class="text-cyan-500">SMKN 2 Sumedang</span></h1>
+            <h1 class="text-2xl text-white text-center font-bold">Data Pengajar <span class="text-cyan-300">SMKN 2 Sumedang</span></h1>
             <table class="flex justify-center">
                 <tr class="bg-cyan-600 px-10">
                     <th class="py-6 px-10">NIP</th>
@@ -58,7 +58,7 @@
                 <tr>
                     <td class="py-1">{{ $teacher->nip }}</td>
                     <td>{{ $teacher->pengajar }}</td>
-                    <td>{{ $teacher->mata_pelajaran }}</td>
+                    <td class="line-clamp-1">{{ $teacher->mata_pelajaran }}</td>
                     <td class="text-center">
                         <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('teachers.destroy', $teacher->id) }}" method="post">
                             <a href="{{ route('teachers.show', $teacher->id) }}" class="bg-blue-400 text-sm px-2">SHOW</a>

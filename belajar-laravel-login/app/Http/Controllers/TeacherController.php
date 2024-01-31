@@ -94,7 +94,7 @@ class TeacherController extends Controller
             'pengajar' => 'required',
             'mata_pelajaran' => 'required'
         ]);
-
+        
         $teachers = Teacher::findOrFail($id);
 
         $teachers->update([
@@ -108,7 +108,7 @@ class TeacherController extends Controller
 
     /**
     * destroy
-    *
+    *   
     * @param mixed $id
     * @return void
     */
