@@ -126,7 +126,7 @@
                         <th>Opsi</th>
                     </thead>
                     <tbody>
-                    @forelse ($Barangs as $barang)
+                    @forelse ($barangs as $barang)
                         <tr>
                             <td >{{$barang->id_barang }}</td>
                             <td > <img src="{{ asset('/storage/product/'.$barang->image) }}" class="rounded"
@@ -135,16 +135,18 @@
                             <td >{{$barang->merk}}</td>
                             <td >{{$barang->harga }}</td>
                             <td>
-                                <a href="{{ route('barang.edit', $barang->id_barang) }}" class="button small
-                                green --jb-modal" type="button">
-                                <span class="icon"><i class="mdi mdi-pencil"></i></span>
-                                </a>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                type="button">
-                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                                @csrf
-                                @method('DELETE')
+                                <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('barang.destroy', $barang->id_barang) }}" method="post">
+                                    <a href="{{ route('barang.edit', $barang->id_barang) }}" class="button small
+                                    green --jb-modal" type="button">
+                                    <span class="icon"><i class="mdi mdi-pencil"></i></span>
+                                    </a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="button small red --jb-modal" data-target="sample-modal"
+                                    type="submit">
+                                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                    </button>
+                                </form>
                             </td>                            
                         </tr>
                     @empty

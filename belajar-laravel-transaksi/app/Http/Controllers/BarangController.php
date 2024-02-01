@@ -23,8 +23,8 @@ class BarangController extends Controller
 
     public function index() : view
     {
-        $Barangs = Barang::latest()->paginate(5);
-        return view('barang', compact('Barangs'));
+        $barangs = Barang::latest()->paginate(5);
+        return view('barang', compact('barangs'));
     }
 
     public function create(): view 
@@ -52,5 +52,13 @@ class BarangController extends Controller
         ]);
 
         return redirect()->route('barang.index')->with(['success', 'Data berhasil disimpan!']);
+    }
+
+    public function destroy($id_barang): RedirectResponse 
+    {
+        $barangs = Barang::findOrFail($id_barang);
+        $barangs->delete();
+
+        return redirect()->route('barang.index');
     }
 }
