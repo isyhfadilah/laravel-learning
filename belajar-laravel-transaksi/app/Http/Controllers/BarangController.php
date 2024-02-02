@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
 {
@@ -52,6 +53,47 @@ class BarangController extends Controller
         ]);
 
         return redirect()->route('barang.index')->with(['success', 'Data berhasil disimpan!']);
+    }
+
+    public function edit(string $id_barang): view 
+    {
+        $barang = Barang::findOrFail($id_barang);
+        return view('updateformbarang', compact('barang'));
+    }
+
+    public function update(Request $request, $id_barang): RedirectResponse
+    {
+        $this->validate($request, [
+            'image' => 'image|mimes:jpeg,jpg,png',
+            'nama_produk' => 'required|min:2',
+            'merk' => 'required|min:3',
+            'harga' => 'required|min:3'
+        ]);
+
+        $barang = Barang::findOrFail($id_barang);
+
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image->storeAs('public/product/'.$image->hashName());
+
+            // delete old image
+            Storage::delete('public/product/'.$barang->image);
+
+            $barang->update([
+                'image' => $image->hashName(),
+                'nama_produk' => $request->nama_produk,
+                'merk' => $request->merk,
+                'harga' => $request->harga
+            ]);
+        } else {
+            $barang->update([
+                'nama_produk' => $request->nama_produk,
+                'merk' => $request->merk,
+                'harga' => $request->harga
+            ]);
+        }
+
+        return redirect()->route('barang.index');
     }
 
     public function destroy($id_barang): RedirectResponse 

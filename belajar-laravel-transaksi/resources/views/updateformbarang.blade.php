@@ -65,7 +65,7 @@
             <p class="menu-label">General</p>
             <ul class="menu-list">
                 <li class="active">
-                    <a href="{{route('home')}}">
+                    <a href="#">
                     <span cla ss="icon"><i class="mdi mdi-desktop-mac"></i></span>
                     <span class="menu-item-label">Dashboard</span>
                     </a>
@@ -74,13 +74,13 @@
             <p class="menu-label">Menu</p>
             <ul class="menu-list">
                 <li class="--set-active-index-html">
-                    <a href="{{route('barang.index')}}">
+                    <a href="#">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
                     <span class="menu-item-label">Barang</span>
                     </a>
                 </li>
                 <li class="--set-active-profile-html">
-                    <a href="#">
+                    <a href="profile.html">
                     <span class="icon"><i class="mdi mdi-account-circle"></i></span>
                     <span class="menu-item-label">User</span>
                     </a>
@@ -98,74 +98,71 @@
         </div>
     </section>
 
-    <section class="is-hero-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-            <h1 class="title">
-            Data Barang
-            </h1>
-            <a href="{{route('barang.create')}}" class="button light">Tambah Barang</a>
-        </div>
-    </section>
-
     <section class="section main-section">
         <div class="card has-table">
             <header class="card-header">
                 <p class="card-header-title">
-                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-                Barang
+                <span class="icon"><i class="mdi mdi-plus-box-outline"></i></span>
+                Edit Data Barang
                 </p>
             </header>
             <div class="card-content">
-                <table>
-                    <thead>
-                        <th>ID Barang</th>
-                        <th>Foto</th>
-                        <th>Nama Produk</th>
-                        <th>Merk</th>
-                        <th>Harga</th>
-                        <th>Opsi</th>
-                    </thead>
-                    <tbody>
-                    @forelse ($barangs as $barang)
-                        <tr>
-                            <td >{{$barang->id_barang }}</td>
-                            <td > <img src="{{ asset('/storage/product/'.$barang->image) }}" class="rounded"
-                            style="width: 150px"></td>
-                            <td >{{$barang->nama_produk}}</td>
-                            <td >{{$barang->merk}}</td>
-                            <td >{{$barang->harga }}</td>
-                            <td>
-                                <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('barang.destroy', $barang->id_barang) }}" method="post">
-                                    <a href="{{ route('barang.edit', $barang->id_barang) }}" class="button small
-                                    green --jb-modal" type="button">
-                                    <span class="icon"><i class="mdi mdi-pencil"></i></span>
-                                    </a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="submit">
-                                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                    </button>
-                                </form>
-                            </td>                            
-                        </tr>
-                    @empty
-                        <tr>
-                            <div class="card empty">
-                                <div class="card-content">
-                                    <div>
-                                        <span class="icon large"><i class="mdi mdi-emoticon-sad mdi-48px"></i></span>
+                <form action="{{ route('barang.update', $barang->id_barang) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                            
+                    <div class="field">
+                        <div class="field-body">
+                            <div class="flex">
+                                <div class="field">
+                                    <div class="control icons-left">
+                                        <input class="input" type="text" placeholder="Nama Barang" name="nama_produk" value="{{ old('nama_produk', $barang->nama_produk) }}">
+                                        <span class="icon left"><i class="mdi mdi-rename-box"></i></span>
                                     </div>
-                                    <p>Nothing's here…</p>
+                                </div>
+                                <div class="field px-2">
+                                    <div class="field-body">
+                                        <div class="field file">
+                                            <label class="upload control">
+                                                <a class="button blue">
+                                                Upload Foto
+                                                </a>
+                                                <input type="file" name="image">
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </tr>
-                    @endforelse
-                    </tbody>
-                </table>
+                            <div class="field">
+                                <div class="control icons-left">
+                                    <input class="input" type="text" placeholder="Merk" name="merk" value="{{ old('merk', $barang->merk) }}">
+                                    <span class="icon left"><i class="mdi mdi-label-outline"></i></span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control icons-left">
+                                    <input class="input" type="number" placeholder="Harga" name="harga" value="{{ old('harga', $barang->harga) }}">
+                                    <span class="icon left"><i class="mdi mdi-coins"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field grouped">
+                        <div class="control">
+                            <button type="submit" class="button green">
+                            Submit
+                            </button>
+                        </div>
+                        <div class="control">
+                            <button type="reset" class="button red">
+                            Reset
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>        
+    </section>       
     <script type="text/javascript" src="{{ URL::asset('js/main.min.js'); }} "></script>
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
 </body>

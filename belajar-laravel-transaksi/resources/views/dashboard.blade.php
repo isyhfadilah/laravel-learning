@@ -74,13 +74,13 @@
             <p class="menu-label">Menu</p>
             <ul class="menu-list">
                 <li class="--set-active-index-html">
-                    <a href="#">
+                    <a href="{{route('barang.index')}}">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
                     <span class="menu-item-label">Barang</span>
                     </a>
                 </li>
                 <li class="--set-active-profile-html">
-                    <a href="{{route('barang.index')}}">
+                    <a href="#">
                     <span class="icon"><i class="mdi mdi-account-circle"></i></span>
                     <span class="menu-item-label">User</span>
                     </a>
