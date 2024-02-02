@@ -9,13 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="flex min-h-full flex-col justify-center p-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">SIK</h2>
+            <h2 class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">SIK</h2>
             <h4 class="text-center text-xl leading-9 tracking-tight text-gray-900">Sistem Informasi Kasir</h4>
         </div>
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <form class="space-y-6" action="{{ route('actionregister')}}" method="post">
             @csrf
                 <div>
@@ -70,7 +70,7 @@
                     focus-visible:outline-indigo-600">Register</button>
                 </div>
             </form>
-            <p class="text-center mt-10">Sudah punya akun? <a class="underline text-[blue] hover:text-black" href="{{ route('login') }}">Login</a> sekarang!</p>          
+            <p class="text-center mt-6">Sudah punya akun? <a class="underline text-[blue] hover:text-black" href="{{ route('login') }}">Login</a> sekarang!</p>          
         </div>
     </div>
 </body>

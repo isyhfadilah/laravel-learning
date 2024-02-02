@@ -9,6 +9,6 @@ class TransaksiController extends Controller
     public function index() 
     {
         $transaksis = Transaksi::all(); // Mendapatkan semua transaksi dari model Transaksi
-        return view('dashboard', ['transaksis' => $transaksis]);
+        return view('pages.dashboard', ['transaksis' => $transaksis]);
     }
 }

@@ -25,12 +25,12 @@ class BarangController extends Controller
     public function index() : view
     {
         $barangs = Barang::latest()->paginate(5);
-        return view('barang', compact('barangs'));
+        return view('pages.barang', compact('barangs'));
     }
 
     public function create(): view 
     {
-        return view('insertformbarang');
+        return view('commons.forms.insertformbarang');
     }
 
     public function store(Request $request): RedirectResponse
@@ -58,7 +58,7 @@ class BarangController extends Controller
     public function edit(string $id_barang): view 
     {
         $barang = Barang::findOrFail($id_barang);
-        return view('updateformbarang', compact('barang'));
+        return view('commons.forms.updateformbarang', compact('barang'));
     }
 
     public function update(Request $request, $id_barang): RedirectResponse

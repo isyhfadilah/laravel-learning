@@ -10,7 +10,7 @@ class RegisterController extends Controller
 {
     public function register()
     {
-        return view('register');
+        return view('commons.forms.register');
     }
 
     public function actionregister(Request $request): RedirectResponse
