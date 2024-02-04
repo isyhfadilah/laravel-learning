@@ -1,5 +1,5 @@
 <x-main>
-    <div class="mx-auto my-36">
+    <div class="mx-auto mt-40 mb-56">
         {{ $slot }}
     </div>
 </x-main>
