@@ -27,3 +27,4 @@ Route::get('home', [TransaksiController::class, 'index'])->name('home')->middlew
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 Route::resource('/barang', BarangController::class);
+Route::resource('/transaksi', TransaksiController::class);
