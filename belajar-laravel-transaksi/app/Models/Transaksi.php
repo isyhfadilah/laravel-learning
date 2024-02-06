@@ -13,6 +13,7 @@ class Transaksi extends Model
         'id_barang',
         'total_item',
         'total_harga',
+        'status_pembayaran',
         'created_at',
         'updated_at',
     ];

@@ -25,7 +25,7 @@
                         <td data-label="total_harga">{{ $transaksi->total_harga }}</td>
                         <td data-label="status_pembayaran">{{ $transaksi->status_pembayaran }}</td>
                         <td data-label="Created">
-                            <small class="text-gray-500" title="Oct 25, 2021">Oct 25, 2021</small>
+                            <small class="text-gray-500" title="Oct 25, 2021">Feb 07, 2024</small>
                         </td>
                     </tr>
                 @empty

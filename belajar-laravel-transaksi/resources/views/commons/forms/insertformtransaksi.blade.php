@@ -21,21 +21,34 @@
                 @csrf
                     <div class="field">
                         <div class="control icons-left">
-                            <input class="input" type="text" placeholder="Id Transaksi" name="id_transaksi">
+                            <input class="input" type="number" placeholder="Id Transaksi" name="id_transaksi">
                             <span class="icon left"><i class="mdi mdi-rename-box"></i></span>
+                        </div>
+                    </div>
+                    <select class="w-full control outline py-2 rounded-md px-2 mb-3" name="id_barang" id="id_barang">
+                        <option disabled value>Nama Barang</option>
+                        @foreach ($transaksi as $item)
+                        <option value="{{ $item->id_barang }}">{{ $item->nama_produk }}</option>
+                        @endforeach
+                    </select>
+                    <div class="field">
+                        <div class="control icons-left">
+                            <input class="input" type="number" placeholder="Total Item" name="total_item">
+                            <span class="icon left"><i class="mdi mdi-coins"></i></span>
                         </div>
                     </div>
                     <div class="field">
                         <div class="control icons-left">
-                            <input class="input" type="text" placeholder="Id Transaksi" name="id_transaksi">
-                            <span class="icon left"><i class="mdi mdi-rename-box"></i></span>
+                            <input class="input" type="number" placeholder="Total Harga" name="total_harga">
+                            <span class="icon left"><i class="mdi mdi-coins"></i></span>
                         </div>
                     </div>
-                    <select class="w-full control outline py-2 rounded-md px-2" name="id_barang" id="id_barang">
-                        @foreach ($transaksi as $item)
-                            <option value="{{ $item->id_barang }}">{{ $item->nama_produk }}</option>
-                        @endforeach
-                    </select>
+                    <div class="field">
+                        <div class="control icons-left">
+                            <input class="input" type="text" placeholder="Status Pembayaran" name="status_pembayaran">
+                            <span class="icon left"><i class="mdi mdi-label-outline"></i></span>
+                        </div>
+                    </div>
                     <div class="field grouped mt-6">
                         <div class="control">
                             <button type="submit" class="button green">
