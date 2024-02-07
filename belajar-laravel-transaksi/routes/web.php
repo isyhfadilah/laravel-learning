@@ -27,6 +27,7 @@ Route::get('home', [TransaksiController::class, 'index'])->name('home')->middlew
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 Route::get('cetakdata', [TransaksiController::class, 'cetakdata'])->name('cetakdata');
+Route::get('cetakstruk/{id_transaksi}', [TransaksiController::class, 'cetakstruk'])->name('cetakstruk');
 
 Route::resource('/barang', BarangController::class);
 Route::resource('/transaksi', TransaksiController::class);

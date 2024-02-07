@@ -14,7 +14,8 @@
                     <th>Total Item</th>
                     <th>Total Harga</th>
                     <th>Status Pembayaran</th>
-                    <th>tgl_transaksi</th>
+                    <th>Tanggal Transaksi</th>
+                    <th>Aksi</th>
                 </thead>
                 <tbody>
                 @forelse ($transaksis as $transaksi)
@@ -25,8 +26,20 @@
                         <td data-label="total_harga">{{ $transaksi->total_harga }}</td>
                         <td data-label="status_pembayaran">{{ $transaksi->status_pembayaran }}</td>
                         <td data-label="Created">
-                            <small class="text-gray-500" title="Oct 25, 2021">Feb 07, 2024</small>
+                            <small class="text-gray-500" title="Oct 25, 2021">{{ $transaksi->created_at }}</small> 
                         </td>
+                        <td>  
+                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('transaksi.destroy', $transaksi->id_transaksi) }}" method="POST"> 
+                                <a href="{{ route('cetakstruk', ['id_transaksi' => $transaksi->id_transaksi]) }}" target="_blank" class="button small green --jb-modal" type="button"> 
+                                    <span class="icon"><i class="mdi mdi-printer"></i></span> 
+                                </a> 
+                                @csrf 
+                                @method('DELETE') 
+                                <button class="button small red --jb-modal" type="submit"> 
+                                <span class="icon"><i class="mdi mdi-trash-can"></i></span> 
+                              </button> 
+                            </form> 
+                          </td> 
                     </tr>
                 @empty
                     <tr>

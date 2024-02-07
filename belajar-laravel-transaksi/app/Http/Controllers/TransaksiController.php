@@ -41,4 +41,17 @@ class TransaksiController extends Controller
         $transaksis = Transaksi::all();
         return view('pages.cetaktransaksi', compact('transaksis'));
     }
+
+    public function destroy($id_transaksi): RedirectResponse
+    {
+        $transaksis = Transaksi::findOrFail($id_transaksi);
+        $transaksis->delete();
+
+        return redirect()->route('transaksi.index');
+    }
+
+    public function cetakstruk($id_transaksi){
+        $transaksi = Transaksi::findOrFail($id_transaksi);
+        return view('pages.cetakstruk', compact('transaksi'));
+    }
 }
