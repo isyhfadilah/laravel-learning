@@ -3,6 +3,9 @@
         <h1 class="title">
         Data Transaksi
         </h1>
-        <a href="{{route('transaksi.create')}}" class="button light">Tambah Transaksi</a>
+        <div class="space-x-2">
+            <a href="{{route('transaksi.create')}}" class="button light">Tambah Transaksi</a>
+            <a href="{{route('cetakdata')}}" target="_blank" class="button green">Cetak Data Transaksi</a>
+        </div>
     </div>
 </section>

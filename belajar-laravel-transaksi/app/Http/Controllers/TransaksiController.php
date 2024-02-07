@@ -26,13 +26,19 @@ class TransaksiController extends Controller
         // $barang = Barang::findOrFail($request->id_barang);
 
         Transaksi::create([
-            'id_transaksi' => $request->id_transaksi,
-            'id_barang' => $request->id_barang,
+            // 'id_transaksi' => $request->id_transaksi,
+            'id_barang' => $request->barang,
             'total_item' => $request->total_item,
             'total_harga' => $request->total_harga,
             'status_pembayaran' => $request->status_pembayaran
         ]);
 
         return redirect()->route('transaksi.index');
+    }
+
+    public function cetakdata()
+    {
+        $transaksis = Transaksi::all();
+        return view('pages.cetaktransaksi', compact('transaksis'));
     }
 }

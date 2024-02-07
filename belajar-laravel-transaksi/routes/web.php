@@ -26,5 +26,7 @@ Route::post('actionregister', [RegisterController::class, 'actionregister'])->na
 Route::get('home', [TransaksiController::class, 'index'])->name('home')->middleware('auth');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
+Route::get('cetakdata', [TransaksiController::class, 'cetakdata'])->name('cetakdata');
+
 Route::resource('/barang', BarangController::class);
 Route::resource('/transaksi', TransaksiController::class);
