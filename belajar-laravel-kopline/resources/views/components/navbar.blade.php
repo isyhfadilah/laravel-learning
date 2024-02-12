@@ -5,7 +5,8 @@
         <li>Kategori Film</li>
         <li>Pesanan</li>
     </ul>
-    <div>
+    <div class="space-x-4 flex items-center">
+        <a href="{{ route('actionlogout') }}" class="bg-rose-700 text-white px-4 py-1 rounded-full">Logout</a>
         <a href="{{ route('login') }}">
             <i class="fa-solid fa-user text-white text-xl cursor-pointer"></i>
         </a>
