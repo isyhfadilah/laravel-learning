@@ -1,3 +1,4 @@
+<title>Struk Transaksi Barang</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <div class="flex flex-col justify-center items-center mt-10">
     <h1 class="text-2xl font-bold uppercase">Struk Transaksi Barang</h1>

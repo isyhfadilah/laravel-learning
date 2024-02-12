@@ -6,6 +6,8 @@
         <li>Pesanan</li>
     </ul>
     <div>
-        <i class="fa-solid fa-user text-white text-xl cursor-pointer"></i>
+        <a href="{{ route('login') }}">
+            <i class="fa-solid fa-user text-white text-xl cursor-pointer"></i>
+        </a>
     </div>
 </nav>
