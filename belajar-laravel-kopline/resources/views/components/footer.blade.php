@@ -1,4 +1,4 @@
-<footer class="bg-stone-800 grid grid-cols-3 px-16 py-10 space-x-40">
+<footer class="bg-stone-800 grid lg:grid-cols-3 px-10 lg:px-16 py-10 lg:space-x-40 space-y-6 lg:space-y-0">
     <div class="space-y-6">
         <h1 class="text-3xl text-white font-bold"><span class="text-rose text-rose-700">KOP</span>line</h1>
         <p class="text-white text-sm text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio beatae necessitatibus aspernatur dolorum possimus fugiat dolores deleniti laboriosam nam consectetur facilis iure illum placeat cum harum sapiente quod vel et praesentium qui, eligendi distinctio quia hic adipisci. Aspernatur, dolores voluptatibus magni, asperiores pariatur eius iusto fuga excepturi molestias magnam quae.</p>
@@ -20,6 +20,6 @@
         </ul>
     </div>
 </footer>
-<div class="bg-rose-800 py-1 px-16 text-white text-sm">
+<div class="bg-rose-800 py-1 px-10 lg:px-16 text-white text-sm">
     © 2024 All Rights Reserved | Aisyah Nur Fadilah
 </div>

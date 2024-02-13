@@ -1,6 +1,6 @@
-<nav class="px-16 py-6 flex justify-between items-center">
+<nav class="px-10 lg:px-16 py-6 flex justify-between items-center">
     <h1 class="text-lg text-white font-semibold"><span class="text-rose-700">KOP</span>line</h1>
-    <ul class="text-white flex space-x-10 font-medium cursor-pointer">
+    <ul class="hidden text-white lg:flex space-x-10 font-medium cursor-pointer">
         <li>Beranda</li>
         <li>Kategori Film</li>
         <li>Pesanan</li>
