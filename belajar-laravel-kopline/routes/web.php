@@ -23,3 +23,4 @@ Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actio
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::post('actionregister', [RegisterController::class, 'actionregister'])->name('actionregister');
