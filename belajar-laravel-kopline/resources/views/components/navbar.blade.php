@@ -6,9 +6,12 @@
         <li>Pesanan</li>
     </ul>
     <div class="space-x-4 flex items-center">
-        <a href="{{ route('actionlogout') }}" class="bg-rose-700 text-white px-4 py-1 rounded-full">Logout</a>
+        @guest
         <a href="{{ route('login') }}">
             <i class="fa-solid fa-user text-white text-xl cursor-pointer"></i>
         </a>
+        @else
+        <a href="{{ route('actionlogout') }}" class="bg-rose-700 text-white px-4 py-1 rounded-full">Logout</a>
+        @endguest
     </div>
 </nav>
