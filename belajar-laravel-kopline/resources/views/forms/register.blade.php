@@ -1,7 +1,7 @@
 @vite('resources/css/app.css')
 <title>Kopline | Register</title>
 
-<div class="flex justify-center mt-16">
+<div class="flex justify-center mt-16 mx-20">
     <div class="bg-stone-950 w-1/4 py-10 rounded-lg shadow-lg">
         <h1 class="text-4xl mb-10 text-white font-bold text-center"><span class="text-rose-700">KOP</span>line</h1>
 
