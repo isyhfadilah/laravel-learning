@@ -4,6 +4,9 @@
         <li>Beranda</li>
         <li>Kategori Film</li>
         <li>Pesanan</li>
+        <a href="{{ route('dashboard') }}">
+            <li>Dashboard</li>
+        </a>
     </ul>
     <div class="space-x-4 flex items-center">
         @guest
