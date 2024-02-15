@@ -1,7 +1,7 @@
 <nav class="px-10 lg:px-16 py-6 flex justify-between items-center">
     <h1 class="text-lg text-white font-semibold"><span class="text-rose-700">KOP</span>line</h1>
     <ul class="hidden text-white lg:flex space-x-10 font-medium cursor-pointer">
-        <li>Beranda</li>
+        <li class="{{ route('home') }}">Beranda</li>
         <li>Kategori Film</li>
         <li>Pesanan</li>
         <a href="{{ route('dashboard') }}">

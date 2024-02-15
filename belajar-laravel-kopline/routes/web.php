@@ -17,7 +17,7 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -27,3 +27,4 @@ Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('actionregister', [RegisterController::class, 'actionregister'])->name('actionregister');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('films', [DashboardController::class, 'films'])->name('film');
