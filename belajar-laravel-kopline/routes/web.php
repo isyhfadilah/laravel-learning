@@ -28,3 +28,5 @@ Route::post('actionregister', [RegisterController::class, 'actionregister'])->na
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('films', [DashboardController::class, 'films'])->name('film');
+
+Route::resource('/film', DashboardController::class);

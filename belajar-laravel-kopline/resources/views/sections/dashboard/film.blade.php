@@ -1,7 +1,12 @@
 <section class="py-10 mx-36">
+    @if (session('success'))
+        <div class="p-4 mb-4 text-lg text-green-500" role="alert">
+            <span class="font-medium"> <b>Mantap.</b> </span> {{session('success')}}.
+        </div>
+    @endif
     <h1 class="text-white text-3xl font-bold">Tabel <span class="bg-rose-700">kategori film</span></h1>
     <div class="flex justify-end mb-6">
-        <a href="#" class="outline outline-rose-700 rounded-md px-2 text-red-600 py-1 hover:bg-rose-700 hover:text-white">
+        <a href="#" data-modal-target="add-modal" data-modal-toggle="add-modal" class="outline outline-rose-700 rounded-md px-2 text-red-600 py-1 hover:bg-rose-700 hover:text-white">
             <i class="fa-solid fa-plus"></i>
             Tambah Film
         </a>
@@ -14,18 +19,24 @@
                 <th>Harga</th>
                 <th>Aksi</th>
             </tr>
+            @forelse ($films as $film)
             <tr>
-                <td class="border-r border-white">
-                    {{-- <img src="assets/images/agak-lain.png" alt="" width="90" class=" rounded-lg "> --}}
+                <td class="flex justify-center">
+                    <img src="{{ asset('/storage/film/'. $film->image) }}" alt="" class="rounded"
+                    style="width: 150px">
                 </td>
-                <td class="border-r border-white py-3 px-2">Agak laen</td>
-                <td class="border-r border-white px-2 py-3">30000</td>
-                <td class="space-x-2 flex justify-center items-center py-3">
+                <td>{{ $film->judul_film }}</td>
+                <td>{{ $film->harga }}</td>
+                <td class="space-x-2">
                     <a href="#" class="bg-green-500 rounded-md px-2">detail</a>
                     <a href="#" class="bg-blue-500 rounded-md px-2">edit</a>
                     <a href="#" class="bg-red-600 rounded-md px-2">hapus</a>
                 </td>
             </tr>
+            @empty
+                <h1 class="text-white">Nothing here</h1>
+            @endforelse
         </table>
     </div>
+    @include('forms.dashboard.add')
 </section>
