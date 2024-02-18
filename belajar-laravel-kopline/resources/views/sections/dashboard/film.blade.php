@@ -1,5 +1,11 @@
 <section class="py-10 mx-36">
-    <h1 class="text-white text-3xl font-bold mb-10">Tabel <span class="bg-rose-700">kategori film</span></h1>
+    <h1 class="text-white text-3xl font-bold">Tabel <span class="bg-rose-700">kategori film</span></h1>
+    <div class="flex justify-end mb-6">
+        <a href="#" class="outline outline-rose-700 rounded-md px-2 text-red-600 py-1 hover:bg-rose-700 hover:text-white">
+            <i class="fa-solid fa-plus"></i>
+            Tambah Film
+        </a>
+    </div>
     <div class="flex justify-center">
         <table class="text-white py-56 w-full">
             <tr class="bg-rose-700">
