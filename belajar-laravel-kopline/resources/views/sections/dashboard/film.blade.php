@@ -1,8 +1,10 @@
-<section class="py-10 mx-36">
+<section class="pb-10 pt-5 mx-36">
     @if (session('success'))
-        <div class="p-4 mb-4 text-lg text-green-500" role="alert">
-            <span class="font-medium"> <b>Mantap.</b> </span> {{session('success')}}.
+    <div class="flex justify-end">
+        <div class="py-2 px-4 rounded-bl-lg mb-4 text-center text-sm text-green-500 bg-green-50" role="alert">
+            <span class="font-medium"> <b>Mantap.</b> </span> {{session('success')}}
         </div>
+    </div>
     @endif
     <h1 class="text-white text-3xl font-bold">Tabel <span class="bg-rose-700">kategori film</span></h1>
     <div class="flex justify-end mb-6">
@@ -30,7 +32,7 @@
                 <td class="space-x-2">
                     <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('film.destroy', $film->id_film) }}" method="post">
                         <a href="#" class="bg-green-500 rounded-md px-2">detail</a>
-                        <a href="#" class="bg-blue-500 rounded-md px-2">edit</a>
+                        <a data-modal-target="edit-modal" data-modal-toggle="edit-modal" href="#" class="bg-blue-500 rounded-md px-2">edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-red-600 rounded-md px-2">
@@ -45,4 +47,5 @@
         </table>
     </div>
     @include('forms.dashboard.add')
+    @include('forms.dashboard.edit')
 </section>

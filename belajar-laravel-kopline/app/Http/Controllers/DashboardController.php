@@ -47,6 +47,44 @@ class DashboardController extends Controller
         return redirect()->route('film')->with(['success' => 'Data berhasil disimpan!']);
     }
 
+    public function update(Request $request, $id_film): RedirectResponse 
+    {
+        $this->validate($request, [
+            'judul_film' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,jpg,png',
+            'harga' => 'required|integer',
+            'date' => 'required',
+            'time' => 'required'
+        ]);
+
+        $film = Film::findOrFail($id_film);
+
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image->storeAs('public/film/'.$image->hashName());
+
+            // delete old img
+            Storage::delete('public/film/'.$film->image);
+
+            $film->update([
+                'judul_film' => $request->judul_film,
+                'image' => $image->hashName(),
+                'harga' => $request->harga,
+                'time' => $request->time,
+                'date' => $request->date
+            ]);
+        } else {
+            $film->update([
+                'judul_film' => $request->judul_film,
+                'harga' => $request->harga,
+                'time' => $request->time,
+                'date' => $request->date  
+            ]);
+        }
+
+        return redirect()->route('film')->with(['success' => 'Data berhasil di update!']);
+    }
+
     public function destroy($id_film): RedirectResponse 
     {
         $films = Film::findOrFail($id_film);
