@@ -46,4 +46,12 @@ class DashboardController extends Controller
 
         return redirect()->route('film')->with(['success' => 'Data berhasil disimpan!']);
     }
+
+    public function destroy($id_film): RedirectResponse 
+    {
+        $films = Film::findOrFail($id_film);
+        $films->delete();
+
+        return redirect()->route('film')->with(['success' => 'Data berhasil dihapus!']);
+    }
 }

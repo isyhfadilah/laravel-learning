@@ -28,9 +28,15 @@
                 <td>{{ $film->judul_film }}</td>
                 <td>{{ $film->harga }}</td>
                 <td class="space-x-2">
-                    <a href="#" class="bg-green-500 rounded-md px-2">detail</a>
-                    <a href="#" class="bg-blue-500 rounded-md px-2">edit</a>
-                    <a href="#" class="bg-red-600 rounded-md px-2">hapus</a>
+                    <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('film.destroy', $film->id_film) }}" method="post">
+                        <a href="#" class="bg-green-500 rounded-md px-2">detail</a>
+                        <a href="#" class="bg-blue-500 rounded-md px-2">edit</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-red-600 rounded-md px-2">
+                            hapus
+                        </button>
+                    </form>
                 </td>
             </tr>
             @empty

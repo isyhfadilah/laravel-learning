@@ -9,6 +9,8 @@ class Film extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_film';
+
     protected $fillable = [
         'id_film',
         'judul_film',
