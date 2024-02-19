@@ -92,4 +92,11 @@ class DashboardController extends Controller
 
         return redirect()->route('film')->with(['success' => 'Data berhasil dihapus!']);
     }
+
+    public function show($id_film)
+    {
+        $film = Film::findOrFail($id_film);
+
+        return view('pages.dashboard.detail', compact('film'));
+    }
 }

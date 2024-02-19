@@ -31,7 +31,7 @@
                 <td>{{ $film->harga }}</td>
                 <td class="space-x-2">
                     <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('film.destroy', $film->id_film) }}" method="post">
-                        <a href="#" class="bg-green-500 rounded-md px-2">detail</a>
+                        <a href="{{ route('film.show', $film->id_film) }}" class="bg-green-500 rounded-md px-2">detail</a>
                         <a data-modal-target="edit-modal" data-modal-toggle="edit-modal" href="#" class="bg-blue-500 rounded-md px-2">edit</a>
                         @csrf
                         @method('DELETE')
@@ -48,4 +48,5 @@
     </div>
     @include('forms.dashboard.add')
     @include('forms.dashboard.edit')
+    @include('forms.dashboard.detail')
 </section>
